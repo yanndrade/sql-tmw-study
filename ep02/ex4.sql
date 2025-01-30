@@ -1,8 +1,8 @@
 select 
     product_category_name,
-    avg(product_name_lenght),
-    max(product_name_lenght),
-    min(product_name_lenght),
+    avg(product_name_lenght) as media,
+    max(product_name_lenght) as maximo,
+    min(product_name_lenght)as minimo,
     product_description_lenght
 
 from 
@@ -10,10 +10,10 @@ from
 
 where 
     product_category_name is not null AND
-    product_description_lenght > 100 AND
-    (
-        select avg(product_description_lenght)
-        from tb_products    )
+    product_description_lenght > 100
 
 group by 
     product_category_name
+
+having
+    avg(product_description_lenght) > 50

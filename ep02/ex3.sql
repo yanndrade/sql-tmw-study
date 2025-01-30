@@ -9,7 +9,7 @@ from
 
 where 
     product_category_name is not null AND
-    product_description_lenght > 100
+    product_description_lenght > 50
 
 group by 
     product_category_name
